@@ -5,18 +5,23 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+
 @Component
 public class MusicPlayer {
-    public Music music;
+
+    private ClassicalMusic classicalMusic;
+    private RockMusic rockMusic;
+
 
     @Autowired
-    public MusicPlayer(Music music) {
-
-        this.music = music;
+    public MusicPlayer(ClassicalMusic classicalMusic, RockMusic rockMusic) {
+        this.classicalMusic = classicalMusic;
+        this.rockMusic = rockMusic;
     }
 
     public void playMusic() {
 
-        System.out.println("Playing: " + music.getSong());
+        System.out.println("Playing: " + classicalMusic.getSong());
+        System.out.println("Playing: " + rockMusic.getSong());
     }
 }
